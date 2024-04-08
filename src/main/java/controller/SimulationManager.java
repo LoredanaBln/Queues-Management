@@ -24,9 +24,8 @@ public class SimulationManager implements Runnable {
         this.clientGenerator = new ClientGenerator(arrivalTime, maxServiceTime, minServiceTime, numberOfClients);
         this.clients = clientGenerator.generateClients();
         this.scheduler = new Scheduler(numberOfCashRegisters, numberOfClients);
-
-        Thread simulationThread = new Thread(this);
-        simulationThread.start();
+        //Thread simulationThread = new Thread(this);
+        //simulationThread.start();
     }
 
     @Override
