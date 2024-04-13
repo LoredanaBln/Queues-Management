@@ -11,7 +11,7 @@ public class ClientGenerator{
     private Integer minServiceTime;
     private Integer numberOfClients;
 
-    public ClientGenerator(Integer arrivalTime, Integer maxServiceTime, Integer     minServiceTime, Integer numberOfClients) {
+    public ClientGenerator(Integer arrivalTime, Integer maxServiceTime, Integer minServiceTime, Integer numberOfClients) {
         this.arrivalTime = arrivalTime;
         this.maxServiceTime = maxServiceTime;
         this.minServiceTime = minServiceTime;
@@ -24,7 +24,7 @@ public class ClientGenerator{
 
         for (int i = 0; i < numberOfClients; i++) {
             int id = i + 1;
-            int arrival = random.nextInt(arrivalTime/2) + 1;
+            int arrival = random.nextInt(arrivalTime) + 1;
             int service = random.nextInt(maxServiceTime - minServiceTime + 1) + minServiceTime;
             Client client = new Client(id, arrival, service);
             clients.add(client);
