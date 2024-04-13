@@ -1,9 +1,6 @@
 package model;
-
-import java.util.Iterator;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class CashRegister implements Runnable {
@@ -38,6 +35,7 @@ public class CashRegister implements Runnable {
             if (!clients.isEmpty()) {
                 try {
                     Client client = clients.peek();
+                    //put a "poison" client to break while
                     Thread.sleep(1000);
 
                     while (client.getServiceTime() > 1) {
