@@ -7,7 +7,7 @@ import java.io.IOException;
 public class Logger {
     private static final String LOG_FILE = "simulation_log.txt";
 
-    public static synchronized void log(String message) {
+    public synchronized static void log(String message) {
         System.out.print(message);
         writeToFile(message);
     }

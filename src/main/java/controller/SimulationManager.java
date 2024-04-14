@@ -1,6 +1,7 @@
 package controller;
 
 import controller.statistics.Logger;
+import controller.statistics.Statistics;
 import model.CashRegister;
 import model.Client;
 import view.SimulationFrame;
@@ -33,7 +34,7 @@ public class SimulationManager implements Runnable {
         simulationFrame.addStartButtonListener(this);
     }
 
-    public synchronized void initializeSimulation() {
+    public void initializeSimulation() {
         this.simulationTime = simulationFrame.getSimulationTime();
         this.maxServiceTime = simulationFrame.getMaxServiceTime();
         this.minServiceTime = simulationFrame.getMinServiceTime();
@@ -43,13 +44,14 @@ public class SimulationManager implements Runnable {
         this.progressBars = new ArrayList<>();
         this.clientGenerator = new ClientGenerator(arrivalTime, maxServiceTime, minServiceTime, numberOfClients);
         this.clients = clientGenerator.generateClients();
-        this.scheduler = new Scheduler(numberOfCashRegisters, numberOfClients);
+
+        this.scheduler = new Scheduler(numberOfCashRegisters, numberOfClients, simulationFrame);
         Thread simulationThread = new Thread(this);
         simulationThread.start();
     }
 
     @Override
-    public synchronized void run() {
+    public void run() {
         int currentTime = 0;
         while (currentTime <= simulationTime) {
             Logger.log("\nTime " + currentTime + "\nWaiting clients: ");
@@ -73,8 +75,6 @@ public class SimulationManager implements Runnable {
                     }
                 }
             }
-            System.out.println();
-
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -82,6 +82,7 @@ public class SimulationManager implements Runnable {
             }
             currentTime++;
         }
+        Statistics.writeToFile(String.format("%.2f",(Statistics.totalWaitingTime/(double)numberOfClients)));
     }
 
     public static void main(String[] args) {
