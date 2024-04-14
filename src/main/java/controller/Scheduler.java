@@ -1,10 +1,12 @@
 package controller;
 
+import controller.statistics.Statistics;
 import controller.strategy.ShortestQueueStrategy;
 import controller.strategy.ShortestTimeStrategy;
 import controller.strategy.Strategy;
 import model.CashRegister;
 import model.Client;
+import view.SimulationFrame;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +17,13 @@ public class Scheduler {
     private Integer maxNoOfClientsPerCashRegister;
     private Strategy strategy;
 
-    public Scheduler(Integer noCashRegisters, Integer maxClientsPerCashRegister) {
+    public Scheduler(Integer noCashRegisters, Integer maxClientsPerCashRegister, SimulationFrame simulationFrame) {
         this.maxNoOfClientsPerCashRegister = maxClientsPerCashRegister;
         this.noOfCashRegisters = noCashRegisters;
         this.cashRegisterList = new ArrayList<>();
 
         for (int i = 0; i < noCashRegisters; i++) {
-            CashRegister cashRegister = new CashRegister();
+            CashRegister cashRegister = new CashRegister(simulationFrame, i);
             cashRegisterList.add(cashRegister);
             Thread thread = new Thread(cashRegister);
             thread.start();

@@ -1,0 +1,91 @@
+
+Time 0
+Waiting clients: (3,2,3); (4,2,3); (5,2,2); (1,5,2); (2,5,3); 
+Queue : closed
+Queue : closed
+Time 1
+Waiting clients: (3,2,3); (4,2,3); (5,2,2); (1,5,2); (2,5,3); 
+Queue : closed
+Queue : closed
+Time 2
+Waiting clients: (1,5,2); (2,5,3); 
+Queue : (3,2,3); (5,2,2); 
+Queue : (4,2,3); 
+Time 3
+Waiting clients: (1,5,2); (2,5,3); 
+Queue : (3,2,2); (5,2,2); 
+Queue : (4,2,2); 
+Time 4
+Waiting clients: (1,5,2); (2,5,3); 
+Queue : (3,2,1); (5,2,2); 
+Queue : (4,2,1); 
+Time 5
+Waiting clients: 
+Queue : (5,2,2); (2,5,3); 
+Queue : (1,5,2); 
+Time 6
+Waiting clients: 
+Queue : (5,2,1); (2,5,3); 
+Queue : (1,5,1); 
+Time 7
+Waiting clients: 
+Queue : (2,5,3); 
+Queue : closed
+Time 8
+Waiting clients: 
+Queue : (2,5,2); 
+Queue : closed
+Time 9
+Waiting clients: 
+Queue : (2,5,1); 
+Queue : closed
+Time 10
+Waiting clients: 
+Queue : closed
+Queue : closed
+3.60
+Time 0
+Waiting clients: (1,1,2); (3,3,3); (2,4,2); (4,5,2); (5,5,2); 
+Queue : closed
+Queue : closed
+Time 1
+Waiting clients: (3,3,3); (2,4,2); (4,5,2); (5,5,2); 
+Queue : (1,1,2); 
+Queue : closed
+Time 2
+Waiting clients: (3,3,3); (2,4,2); (4,5,2); (5,5,2); 
+Queue : (1,1,1); 
+Queue : closed
+Time 3
+Waiting clients: (2,4,2); (4,5,2); (5,5,2); 
+Queue : (3,3,3); 
+Queue : closed
+Time 4
+Waiting clients: (4,5,2); (5,5,2); 
+Queue : (3,3,2); 
+Queue : (2,4,2); 
+Time 5
+Waiting clients: 
+Queue : (3,3,1); (4,5,2); 
+Queue : (2,4,1); (5,5,2); 
+Time 6
+Waiting clients: 
+Queue : (4,5,2); 
+Queue : (5,5,2); 
+Time 7
+Waiting clients: 
+Queue : (4,5,1); 
+Queue : (5,5,1); 
+Time 8
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 9
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 10
+Waiting clients: 
+Queue : closed
+Queue : closed
+2.60
