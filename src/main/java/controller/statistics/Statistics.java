@@ -9,17 +9,17 @@ public class Statistics {
     public static int totalServiceTime = 0;
     public static int peakHour = 0;
     public static int maxNumberOfClients = 0;
-    private static final String LOG_FILE = "simulation_log.txt";
+    private static final String LOG_FILE = "simulation_log1000.txt";
 
-    public static synchronized void addToWaitingTime(int waitingTimePerCashRegister){
+    public static void addToWaitingTime(int waitingTimePerCashRegister){
         totalWaitingTime += waitingTimePerCashRegister;
     }
 
-    public static synchronized void addServiceTime(int serviceTimePerClient){
+    public static void addServiceTime(int serviceTimePerClient){
         totalServiceTime += serviceTimePerClient;
     }
 
-    public static void getPeakHour(int totalNumberOfClients, int time){
+    public synchronized static void getPeakHour(int totalNumberOfClients, int time){
         if(totalNumberOfClients > maxNumberOfClients){
             maxNumberOfClients = totalNumberOfClients;
             peakHour = time;
