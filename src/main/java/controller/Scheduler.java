@@ -56,4 +56,12 @@ public class Scheduler {
     public List<CashRegister> getCashRegisterList() {
         return cashRegisterList;
     }
+
+    public int getTotalNumberOfClients(){
+        int size = 0;
+        for(CashRegister cashRegister : cashRegisterList){
+            size += cashRegister.getClients().size();
+        }
+       return size;
+    }
 }
