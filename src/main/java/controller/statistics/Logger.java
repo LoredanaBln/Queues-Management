@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Logger {
-    private static final String LOG_FILE = "simulation_log1000.txt";
+    private static final String LOG_FILE = "simulation_log.txt";
 
     public  static void log(String message) {
         System.out.print(message);
