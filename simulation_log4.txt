@@ -1,0 +1,248 @@
+
+Time 0
+Waiting clients: (3,1,2); (2,16,4); (1,20,2); (4,22,3); 
+Queue : closed
+Queue : closed
+Time 1
+Waiting clients: (2,16,4); (1,20,2); (4,22,3); 
+Queue : (3,1,2); 
+Queue : closed
+Time 2
+Waiting clients: (2,16,4); (1,20,2); (4,22,3); 
+Queue : (3,1,1); 
+Queue : closed
+Time 3
+Waiting clients: (2,16,4); (1,20,2); (4,22,3); 
+Queue : closed
+Queue : closed
+Time 4
+Waiting clients: (2,16,4); (1,20,2); (4,22,3); 
+Queue : closed
+Queue : closed
+Time 5
+Waiting clients: (2,16,4); (1,20,2); (4,22,3); 
+Queue : closed
+Queue : closed
+Time 6
+Waiting clients: (2,16,4); (1,20,2); (4,22,3); 
+Queue : closed
+Queue : closed
+Time 7
+Waiting clients: (2,16,4); (1,20,2); (4,22,3); 
+Queue : closed
+Queue : closed
+Time 8
+Waiting clients: (2,16,4); (1,20,2); (4,22,3); 
+Queue : closed
+Queue : closed
+Time 9
+Waiting clients: (2,16,4); (1,20,2); (4,22,3); 
+Queue : closed
+Queue : closed
+Time 10
+Waiting clients: (2,16,4); (1,20,2); (4,22,3); 
+Queue : closed
+Queue : closed
+Time 11
+Waiting clients: (2,16,4); (1,20,2); (4,22,3); 
+Queue : closed
+Queue : closed
+Time 12
+Waiting clients: (2,16,4); (1,20,2); (4,22,3); 
+Queue : closed
+Queue : closed
+Time 13
+Waiting clients: (2,16,4); (1,20,2); (4,22,3); 
+Queue : closed
+Queue : closed
+Time 14
+Waiting clients: (2,16,4); (1,20,2); (4,22,3); 
+Queue : closed
+Queue : closed
+Time 15
+Waiting clients: (2,16,4); (1,20,2); (4,22,3); 
+Queue : closed
+Queue : closed
+Time 16
+Waiting clients: (1,20,2); (4,22,3); 
+Queue : (2,16,4); 
+Queue : closed
+Time 17
+Waiting clients: (1,20,2); (4,22,3); 
+Queue : (2,16,3); 
+Queue : closed
+Time 18
+Waiting clients: (1,20,2); (4,22,3); 
+Queue : (2,16,2); 
+Queue : closed
+Time 19
+Waiting clients: (1,20,2); (4,22,3); 
+Queue : (2,16,1); 
+Queue : closed
+Time 20
+Waiting clients: (4,22,3); 
+Queue : (1,20,2); 
+Queue : closed
+Time 21
+Waiting clients: (4,22,3); 
+Queue : (1,20,1); 
+Queue : closed
+Time 22
+Waiting clients: 
+Queue : (4,22,3); 
+Queue : closed
+Time 23
+Waiting clients: 
+Queue : (4,22,2); 
+Queue : closed
+Time 24
+Waiting clients: 
+Queue : (4,22,1); 
+Queue : closed
+Time 25
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 26
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 27
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 28
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 29
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 30
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 31
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 32
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 33
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 34
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 35
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 36
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 37
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 38
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 39
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 40
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 41
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 42
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 43
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 44
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 45
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 46
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 47
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 48
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 49
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 50
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 51
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 52
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 53
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 54
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 55
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 56
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 57
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 58
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 59
+Waiting clients: 
+Queue : closed
+Queue : closed
+Time 60
+Waiting clients: 
+Queue : closed
+Queue : closed
+Average waiting time2.75
+Average service time2.75
+Peak hour: 1
