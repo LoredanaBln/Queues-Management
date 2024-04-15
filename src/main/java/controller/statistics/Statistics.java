@@ -6,10 +6,24 @@ import java.io.IOException;
 
 public class Statistics {
     public static int totalWaitingTime = 0;
+    public static int totalServiceTime = 0;
+    public static int peakHour = 0;
+    public static int maxNumberOfClients = 0;
     private static final String LOG_FILE = "simulation_log.txt";
 
-    public static synchronized void add(int waitingTimePerCashRegister){
+    public static synchronized void addToWaitingTime(int waitingTimePerCashRegister){
         totalWaitingTime += waitingTimePerCashRegister;
+    }
+
+    public static synchronized void addServiceTime(int serviceTimePerClient){
+        totalServiceTime += serviceTimePerClient;
+    }
+
+    public static void getPeakHour(int totalNumberOfClients, int time){
+        if(totalNumberOfClients > maxNumberOfClients){
+            maxNumberOfClients = totalNumberOfClients;
+            peakHour = time;
+        }
     }
 
     public static void writeToFile(String averageWaitingTime) {

@@ -25,7 +25,7 @@ public class CashRegister implements Runnable {
     public void addClient(Client client) {
         clients.offer(client);
         waitingPeriod.addAndGet(client.getServiceTime());
-        Statistics.add(waitingPeriod.get());
+        Statistics.addToWaitingTime(waitingPeriod.get());
     }
 
     public Queue<Client> getClients() {

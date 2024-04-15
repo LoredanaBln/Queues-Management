@@ -1,5 +1,6 @@
 package controller;
 
+import controller.statistics.Statistics;
 import model.Client;
 
 import java.util.*;
@@ -27,6 +28,7 @@ public class ClientGenerator{
             int service = ThreadLocalRandom.current().nextInt(minServiceTime, maxServiceTime + 1);
             Client client = new Client(id, arrival, service);
             clients.add(client);
+            Statistics.addServiceTime(client.getServiceTime());
         }
         Collections.sort(clients);
         return clients;

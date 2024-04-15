@@ -80,9 +80,13 @@ public class SimulationManager implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            Statistics.getPeakHour(scheduler.getTotalNumberOfClients(), currentTime);
             currentTime++;
         }
-        Statistics.writeToFile(String.format("%.2f",(Statistics.totalWaitingTime/(double)numberOfClients)));
+        Statistics.writeToFile(String.format("Average waiting time%.2f",(Statistics.totalWaitingTime/(double)numberOfClients)));
+        Statistics.writeToFile(String.format("Average service time%.2f",(Statistics.totalServiceTime/(double)numberOfClients)));
+        Statistics.writeToFile("Peak hour: "+ Statistics.peakHour);
+        System.out.println("Ended");
     }
 
     public static void main(String[] args) {
