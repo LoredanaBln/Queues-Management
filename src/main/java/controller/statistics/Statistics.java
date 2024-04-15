@@ -9,7 +9,7 @@ public class Statistics {
     public static int totalServiceTime = 0;
     public static int peakHour = 0;
     public static int maxNumberOfClients = 0;
-    private static final String LOG_FILE = "simulation_log1000.txt";
+    private static final String LOG_FILE = "simulation_log.txt";
 
     public static void addToWaitingTime(int waitingTimePerCashRegister){
         totalWaitingTime += waitingTimePerCashRegister;

@@ -32,6 +32,18 @@ public class CashRegister implements Runnable {
         return clients;
     }
 
+    public String clientsAtCashRegister() {
+        StringBuilder clientsString = new StringBuilder();
+
+        if (!clients.isEmpty()) {
+            for (Client client : clients) {
+                clientsString.append(client.toString());
+                clientsString.append(" ");
+            }
+        }
+        return clientsString.toString();
+    }
+
     public AtomicInteger getWaitingPeriod() {
         return waitingPeriod;
     }
@@ -39,21 +51,21 @@ public class CashRegister implements Runnable {
     @Override
     public void run() {
         while (true) {
-            synchronized (this){
+            synchronized (this) {
                 if (!clients.isEmpty()) {
                     try {
                         Client client = clients.peek();
                         Thread.sleep(1000);
 
                         while (client.getServiceTime() > 1) {
-                           // simulationFrame.updateProgressBars(client.getInitialServiceTime(), client.getServiceTime(), this.index, client.getID());
+                            // simulationFrame.updateProgressBars(client.getInitialServiceTime(), client.getServiceTime(), this.index, client.getID());
                             client.setServiceTime(client.getServiceTime() - 1);
                             waitingPeriod.decrementAndGet();
                             Thread.sleep(1000);
                         }
                         clients.poll();
                         waitingPeriod.decrementAndGet();
-                       // simulationFrame.updateProgressBars(client.getInitialServiceTime(), 0, this.index, client.getID());
+                        // simulationFrame.updateProgressBars(client.getInitialServiceTime(), 0, this.index, client.getID());
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     } catch (Exception e) {

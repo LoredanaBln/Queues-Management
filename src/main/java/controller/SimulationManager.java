@@ -23,7 +23,8 @@ public class SimulationManager implements Runnable {
     SimulationFrame simulationFrame;
 
     public Integer simulationTime = 0;
-    public Integer arrivalTime = 0;
+    public Integer maxArrivalTime = 0;
+    public Integer minArrivalTime = 0;
     public Integer maxServiceTime = 0;
     public Integer minServiceTime = 0;
     public Integer numberOfCashRegisters = 0;
@@ -40,9 +41,10 @@ public class SimulationManager implements Runnable {
         this.minServiceTime = simulationFrame.getMinServiceTime();
         this.numberOfCashRegisters = simulationFrame.getNumberOfCashRegisters();
         this.numberOfClients = simulationFrame.getNumberOfClients();
-        this.arrivalTime = simulationFrame.getArrivalTime();
+        this.maxArrivalTime = simulationFrame.getMaximumArrivalTime();
+        this.minArrivalTime = simulationFrame.getMinimumArrivalTime();
         this.progressBars = new ArrayList<>();
-        this.clientGenerator = new ClientGenerator(arrivalTime, maxServiceTime, minServiceTime, numberOfClients);
+        this.clientGenerator = new ClientGenerator(maxArrivalTime, minArrivalTime, maxServiceTime, minServiceTime, numberOfClients);
         this.clients = clientGenerator.generateClients();
 
         this.scheduler = new Scheduler(numberOfCashRegisters, numberOfClients, simulationFrame);
@@ -75,6 +77,9 @@ public class SimulationManager implements Runnable {
                     }
                 }
             }
+
+            simulationFrame.updateClientsAtCashRegisters(scheduler.getCashRegisterList());
+
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -107,4 +112,5 @@ public class SimulationManager implements Runnable {
             SimulationManager simulationManager = new SimulationManager();
         });
     }
+
 }

@@ -1,6 +1,6 @@
 package model;
 
-public class Client implements Comparable<Client>{
+public class Client implements Comparable<Client> {
     private Integer ID;
     private Integer arrivalTime;
     private Integer serviceTime;
@@ -39,11 +39,6 @@ public class Client implements Comparable<Client>{
         this.serviceTime = serviceTime;
     }
 
-    @Override
-    public String toString() {
-        return "\n" + '(' +ID + ", " + arrivalTime + ", " + serviceTime + ')';
-    }
-
 
     @Override
     public int compareTo(Client o) {
@@ -56,5 +51,10 @@ public class Client implements Comparable<Client>{
 
     public void setInitialServiceTime(int initialServiceTime) {
         this.initialServiceTime = initialServiceTime;
+    }
+
+    @Override
+    public String toString() {
+        return "" + serviceTime;
     }
 }
