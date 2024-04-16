@@ -14,16 +14,16 @@ import java.util.List;
 public class Scheduler {
     private List<CashRegister> cashRegisterList;
     private Integer noOfCashRegisters;
-    private Integer maxNoOfClientsPerCashRegister;
+    private final Integer maxNoOfClientsPerCashRegister;
     private Strategy strategy;
 
-    public Scheduler(Integer noCashRegisters, Integer maxClientsPerCashRegister, SimulationFrame simulationFrame) {
+    public Scheduler(Integer noCashRegisters, Integer maxClientsPerCashRegister) {
         this.maxNoOfClientsPerCashRegister = maxClientsPerCashRegister;
         this.noOfCashRegisters = noCashRegisters;
         this.cashRegisterList = new ArrayList<>();
 
         for (int i = 0; i < noCashRegisters; i++) {
-            CashRegister cashRegister = new CashRegister(simulationFrame, i);
+            CashRegister cashRegister = new CashRegister();
             cashRegisterList.add(cashRegister);
             Thread thread = new Thread(cashRegister);
             thread.start();

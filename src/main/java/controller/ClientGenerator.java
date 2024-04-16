@@ -21,7 +21,7 @@ public class ClientGenerator{
         this.numberOfClients = numberOfClients;
     }
 
-    public synchronized List<Client> generateClients() {
+    public List<Client> generateClients() {
         List<Client> clients = new ArrayList<>();
 
         for (int i = 0; i < numberOfClients; i++) {

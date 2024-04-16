@@ -7,8 +7,6 @@ import model.Client;
 import view.SimulationFrame;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -18,7 +16,6 @@ public class SimulationManager implements Runnable {
     private Scheduler scheduler = null;
     private List<Client> clients = new ArrayList<>();
     private ClientGenerator clientGenerator;
-    private List<JProgressBar> progressBars;
 
     SimulationFrame simulationFrame;
 
@@ -43,11 +40,10 @@ public class SimulationManager implements Runnable {
         this.numberOfClients = simulationFrame.getNumberOfClients();
         this.maxArrivalTime = simulationFrame.getMaximumArrivalTime();
         this.minArrivalTime = simulationFrame.getMinimumArrivalTime();
-        this.progressBars = new ArrayList<>();
         this.clientGenerator = new ClientGenerator(maxArrivalTime, minArrivalTime, maxServiceTime, minServiceTime, numberOfClients);
         this.clients = clientGenerator.generateClients();
 
-        this.scheduler = new Scheduler(numberOfCashRegisters, numberOfClients, simulationFrame);
+        this.scheduler = new Scheduler(numberOfCashRegisters, numberOfClients);
         Thread simulationThread = new Thread(this);
         simulationThread.start();
     }
@@ -91,7 +87,9 @@ public class SimulationManager implements Runnable {
         Statistics.writeToFile(String.format("Average waiting time%.2f",(Statistics.totalWaitingTime/(double)numberOfClients)));
         Statistics.writeToFile(String.format("Average service time%.2f",(Statistics.totalServiceTime/(double)numberOfClients)));
         Statistics.writeToFile("Peak hour: "+ Statistics.peakHour);
-        System.out.println("Ended");
+
+        System.out.println("\nEnded");
+
     }
 
     public static void main(String[] args) {

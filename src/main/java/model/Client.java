@@ -4,10 +4,6 @@ public class Client implements Comparable<Client> {
     private Integer ID;
     private Integer arrivalTime;
     private Integer serviceTime;
-    private int initialServiceTime;
-
-    public Client() {
-    }
 
     public Client(int ID, int arrivalTime, int serviceTime) {
         this.ID = ID;
@@ -27,10 +23,6 @@ public class Client implements Comparable<Client> {
         return arrivalTime;
     }
 
-    public void setArrivalTime(int arrivalTime) {
-        this.arrivalTime = arrivalTime;
-    }
-
     public int getServiceTime() {
         return serviceTime;
     }
@@ -39,22 +31,16 @@ public class Client implements Comparable<Client> {
         this.serviceTime = serviceTime;
     }
 
-
     @Override
     public int compareTo(Client o) {
         return this.arrivalTime.compareTo(o.getArrivalTime());
     }
 
-    public int getInitialServiceTime() {
-        return initialServiceTime;
+    public String first(){
+        return ID + "\uD83D\uDE01 " + serviceTime;
     }
 
-    public void setInitialServiceTime(int initialServiceTime) {
-        this.initialServiceTime = initialServiceTime;
-    }
-
-    @Override
-    public String toString() {
-        return "" + serviceTime;
+    public String other(){
+        return ID + "\uD83D\uDE34 " + serviceTime;
     }
 }
