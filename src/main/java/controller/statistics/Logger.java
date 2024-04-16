@@ -11,8 +11,7 @@ public class Logger {
         System.out.print(message);
         writeToFile(message);
     }
-
-    private synchronized static void writeToFile(String message) {
+    private static void writeToFile(String message) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(LOG_FILE, true))) {
             writer.write(message);
         } catch (IOException e) {

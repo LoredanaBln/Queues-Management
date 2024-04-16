@@ -12,14 +12,10 @@ public class CashRegister implements Runnable {
 
     private Queue<Client> clients;
     private AtomicInteger waitingPeriod;
-    private SimulationFrame simulationFrame;
-    private Integer index;
 
-    public CashRegister(SimulationFrame simulationFrame, Integer index) {
+    public CashRegister() {
         clients = new LinkedBlockingQueue<>();
         waitingPeriod = new AtomicInteger(0);
-        this.simulationFrame = simulationFrame;
-        this.index = index;
     }
 
     public void addClient(Client client) {
@@ -34,11 +30,17 @@ public class CashRegister implements Runnable {
 
     public String clientsAtCashRegister() {
         StringBuilder clientsString = new StringBuilder();
-
+        int ok = 1;
         if (!clients.isEmpty()) {
             for (Client client : clients) {
-                clientsString.append(client.toString());
-                clientsString.append(" ");
+                if (ok == 1) {
+                    clientsString.append(client.first());
+                    clientsString.append("   ");
+                    ok = 0;
+                } else {
+                    clientsString.append(client.other());
+                    clientsString.append("   ");
+                }
             }
         }
         return clientsString.toString();
@@ -58,14 +60,12 @@ public class CashRegister implements Runnable {
                         Thread.sleep(1000);
 
                         while (client.getServiceTime() > 1) {
-                            // simulationFrame.updateProgressBars(client.getInitialServiceTime(), client.getServiceTime(), this.index, client.getID());
                             client.setServiceTime(client.getServiceTime() - 1);
                             waitingPeriod.decrementAndGet();
                             Thread.sleep(1000);
                         }
                         clients.poll();
                         waitingPeriod.decrementAndGet();
-                        // simulationFrame.updateProgressBars(client.getInitialServiceTime(), 0, this.index, client.getID());
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     } catch (Exception e) {

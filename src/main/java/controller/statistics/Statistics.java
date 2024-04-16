@@ -19,13 +19,12 @@ public class Statistics {
         totalServiceTime += serviceTimePerClient;
     }
 
-    public synchronized static void getPeakHour(int totalNumberOfClients, int time){
+    public static void getPeakHour(int totalNumberOfClients, int time){
         if(totalNumberOfClients > maxNumberOfClients){
             maxNumberOfClients = totalNumberOfClients;
             peakHour = time;
         }
     }
-
     public static void writeToFile(String averageWaitingTime) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(LOG_FILE, true))) {
             writer.newLine();
