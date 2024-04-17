@@ -51,7 +51,7 @@ public class SimulationManager implements Runnable {
     @Override
     public void run() {
         int currentTime = 0;
-        while (currentTime <= simulationTime) {
+        while (currentTime <= simulationTime && !areQueuesEmpty()) {
             Logger.log("\nTime " + currentTime + "\nWaiting clients: ");
 
             for (Iterator<Client> iterator = clients.iterator(); iterator.hasNext(); ) {
@@ -84,6 +84,8 @@ public class SimulationManager implements Runnable {
             Statistics.getPeakHour(scheduler.getTotalNumberOfClients(), currentTime);
             currentTime++;
         }
+
+        simulationFrame.updateClientsAtCashRegisters(scheduler.getCashRegisterList());
         Statistics.writeToFile(String.format("Average waiting time%.2f",(Statistics.totalWaitingTime/(double)numberOfClients)));
         Statistics.writeToFile(String.format("Average service time%.2f",(Statistics.totalServiceTime/(double)numberOfClients)));
         Statistics.writeToFile("Peak hour: "+ Statistics.peakHour);
@@ -91,6 +93,16 @@ public class SimulationManager implements Runnable {
         System.out.println("\nEnded");
 
     }
+
+    private boolean areQueuesEmpty() {
+        for (CashRegister cashRegister : scheduler.getCashRegisterList()) {
+            if (!cashRegister.getClients().isEmpty()) {
+                return false;
+            }
+        }
+        return clients.isEmpty();
+    }
+
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
